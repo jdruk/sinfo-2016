@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
+  get 'notifications/create'
 
-  get 'dashboard/admininstrator'
+  get 'checkout/create': 'checkout#create', as: :create
 
-  devise_for :users
+  get 'dashboard/index': 'dashboard#index', as: :index
+
+  get 'dashboard/admininstrator': 'dashboard#admininstrator', as: :admininstrator
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   resources :courses
-
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 end
