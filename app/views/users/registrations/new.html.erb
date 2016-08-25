@@ -23,7 +23,7 @@
 
   <%= f.fields_for :course_users do |subf| %>
       <div class="field">
-        <%=  subf.object.course %>
+        <%#  subf.object.course %>
         <%# subf.collection_select :course_id , Course.available(subf.object.category), :id, :name, prompt: "Nenhum" %>
       </div>
   <% end %>
