@@ -4,6 +4,7 @@
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   <%= link_to('Edit registration', edit_user_registration_path) %>
   <%= link_to('Gerar Boleto', create_path) %>
+  <%= link_to('Verificar Boleto', create_notification_path(current_user.url_token)) %>
   </li>
 <% else %>
   <li>

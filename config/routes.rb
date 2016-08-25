@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Rotas referentes ao Pag Seguro
-  get 'notifications/create'
+  get 'notifications/create/' => 'notifications#create', as: :create_notification
   get 'checkout/create' => 'checkout#create', as: :create
 
   # Index principal do sistema

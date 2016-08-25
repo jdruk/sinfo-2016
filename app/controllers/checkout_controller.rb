@@ -9,7 +9,7 @@ class CheckoutController < ApplicationController
     # diferentes, como no exemplo abaixo
 
     payment.reference = current_user.id
-    #payment.notification_url = notifications_url
+    #payment.notification_url = create_notification_path
     #payment.redirect_url = 'processing_url'
 
 
@@ -36,6 +36,7 @@ class CheckoutController < ApplicationController
     end
 
     response = payment.register
+    puts response.methods
     # Caso o processo de checkout tenha dado errado, lança uma exceção.
     # Assim, um serviço de rastreamento de exceções ou até mesmo a gem
     # exception_notification poderá notificar sobre o ocorrido.
