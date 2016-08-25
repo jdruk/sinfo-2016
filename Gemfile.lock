@@ -91,6 +91,7 @@ GEM
       i18n (~> 0.7)
       json (~> 1.8)
       nokogiri (~> 1.6)
+    pg (0.18.4)
     pkg-config (1.1.7)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -173,6 +174,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pagseguro-oficial (~> 2.5.0)
+  pg
   pundit
   rails (= 4.2.3)
   sass-rails (~> 5.0)

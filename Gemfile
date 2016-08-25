@@ -15,8 +15,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
-    gem 'pg'
+  gem 'pg'
 end
+
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
