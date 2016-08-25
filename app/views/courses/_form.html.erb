@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.number_field :type %>
+    <%= f.label :type_day %><br>
+    <%= f.select :type_day, options_for_select([:first_day, :second_day], :first_day) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,7 +1,7 @@
 PagSeguro.configure do |config|
-  config.token       = "seu token"
-  config.email       = "seu e-mail"
-  config.environment = :production # ou :sandbox. O padrão é production.
-  config.encoding    = "UTF-8" # ou ISO-8859-1. O padrão é UTF-8.
+  # Adicionar token do professor Oseias
+  config.token       = "0ED5851C3F6946FEB23983B91D3483D7"
+  config.email       = "desenvolvedorjosafa@gmail.com"
+  config.environment = :production
+  config.encoding    = "UTF-8"
 end
-    

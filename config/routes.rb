@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
+  # Rotas referentes ao Pag Seguro
   get 'notifications/create'
+  get 'checkout/create' => 'checkout#create', as: :create
 
-  get 'checkout/create': 'checkout#create', as: :create
+  # Index principal do sistema
+  root 'dashboard#index'
+  get 'dashboard/index' => 'dashboard#index', as: :index
 
-  get 'dashboard/index': 'dashboard#index', as: :index
+  # Painel administrativo
+  get 'dashboard/admininstrator' => 'dashboard#admininstrator', as: :admininstrator
 
-  get 'dashboard/admininstrator': 'dashboard#admininstrator', as: :admininstrator
-
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
+  # Rotas para sessions e registrations passando pela views geradas do devise
+  devise_for :users, :controllers  => {
+             :registrations => 'users/registrations',
+             :sessions => 'users/sessions'
   }
+  # Demais modelos
   resources :courses
 end

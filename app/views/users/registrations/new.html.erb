@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>oi</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -20,6 +20,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <%= f.fields_for :course_users do |subf| %>
+      <div class="field">
+        <%=  subf.object.course %>
+        <%# subf.collection_select :course_id , Course.available(subf.object.category), :id, :name, prompt: "Nenhum" %>
+      </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
