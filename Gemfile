@@ -3,14 +3,15 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Gem add manualmente
+gem 'puma'
 gem 'devise'
 gem 'pundit'
 gem 'pagseguro-oficial', '~> 2.5.0'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
-gem 'rails_12factor', group: :production
-gem 'rails_serve_static_assets'
+#gem 'rails_12factor', group: :production
+#gem 'rails_serve_static_assets'
 gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
