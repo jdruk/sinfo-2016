@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   # Rotas referentes ao Pag Seguro
   post 'notifications' => 'notifications#create', as: :create_notification
   get 'checkout/create' => 'checkout#create', as: :create

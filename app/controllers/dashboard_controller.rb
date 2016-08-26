@@ -1,34 +1,28 @@
 class DashboardController < ApplicationController
-  skip_before_filter :verify_authenticity_token, only: :index
+    skip_before_filter :verify_authenticity_token, only: :index
 
-  def index
-    if user_signed_in?
-        unless current_user.pay?
-            transaction = PagSeguro::Transaction.find_by_reference(current_user.id)
-            while transaction.next_page?
-              transaction.next_page!
-              puts "== Page #{transaction.page}"
-              abort "=> Errors: #{transaction.errors.join("\n")}" unless transaction.valid?
-              puts "Report created on #{transaction.created_at}"
-              puts
-              if transaction.transactions.count == 0
-                  flash[:notice] = "Não encontramos nenhum pagamento referente a sua inscrição"
-              end
-              transaction.transactions.each do |transaction|
-                if transaction.status_code == 3
-                    if current_user.value_total == transaction.gross_amount.to_f
-                        current_user.pay = :pay
-                    elsif condition
-                         flash[:error] =  "Por favor contate os administradores do SINFO!"
-                         current_user.pay = :error_pay
-                    end
-                end
+    =begin
+    * Name: Sinfo-2016
+    * Description: Sistema de inscrição
+    * Author: Josafá Martins dos Santos
+    =end
+
+    def index
+        =begin
+        verificando primeiramente se o usuario está com a sessão aberta
+        dentro do sistema, caso seja afirmativo então será feito uma verificação
+        do atributo pay (referente se o mesmo já efetuou o pagamento). Senão será
+        delegado ao metodo verify_pay para atualizar ou não esse atributo.
+        =end
+
+        if user_signed_in?
+            unless current_user.pay?
+                current_user.verify_pay
             end
         end
-      end
     end
-  end
 
-  def admininstrator
-  end
+    def admininstrator
+    end
+
 end
