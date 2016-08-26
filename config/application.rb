@@ -7,6 +7,11 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Sinfo
+  # Valores de inscrição, camisa e curso
+  VALUE_INSCRIPTION = 10.00
+  VALUE_SHIRKT = 10.00
+  VALUE_COURSE = 15.00
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -22,5 +27,9 @@ module Sinfo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # def value_inscription
+    #     return 10.00
+    # end
   end
 end

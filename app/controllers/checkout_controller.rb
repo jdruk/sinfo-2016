@@ -16,14 +16,14 @@ class CheckoutController < ApplicationController
     payment.items << {
         id: 100,
         description: 'inscrição evento',
-        amount: 10.00
+        amount: Sinfo::VALUE_INSCRIPTION
     }
 
     unless current_user.nenhuma?
         payment.items << {
             id: 101,
             description: current_user.shirkt,
-            amount: 40.00
+            amount: Sinfo::VALUE_SHIRKT
         }
     end
 
@@ -31,17 +31,12 @@ class CheckoutController < ApplicationController
         payment.items << {
             id: c.id,
             description: c.name,
-            amount: 15.00
+            amount: Sinfo::VALUE_COURSE
         }
     end
 
     response = payment.register
-    puts response.methods
-    # Caso o processo de checkout tenha dado errado, lança uma exceção.
-    # Assim, um serviço de rastreamento de exceções ou até mesmo a gem
-    # exception_notification poderá notificar sobre o ocorrido.
-    #
-    # Se estiver tudo certo, redireciona o comprador para o PagSeguro.
+
     if response.errors.any?
       raise response.errors.join("\n")
     else

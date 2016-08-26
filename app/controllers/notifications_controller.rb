@@ -6,15 +6,9 @@ class NotificationsController < ApplicationController
     transaction = PagSeguro::Transaction.find_by_code(params[:notificationCode])
 
     if transaction.errors.empty?
-      # Processa a notificação. A melhor maneira de se fazer isso é realizar
-      # o processamento em background. Uma boa alternativa para isso é a
-      # biblioteca Sidekiq.
+        #houve um erro
     end
-    
-    puts '\n\n\n\n\n\n\n\n\n'
-    puts "Chegouuuuuuuuuuuuuruuuuuuuuuuuuuuuuuuuuu"
-    puts params[:notificationCode]
-    puts '\n\n\n\n\n\n\n\n\n'
     render nothing: true, status: 200
   end
+
 end
