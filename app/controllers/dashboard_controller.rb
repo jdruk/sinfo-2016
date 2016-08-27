@@ -19,6 +19,9 @@ class DashboardController < ApplicationController
             unless current_user.pay?
                 # Função critica do sistema! Testar antes de colocar em produção
                 #current_user.verify_pay
+                if current_user.error_pay?
+                    flash[:error] =  "Por favor contate os administradores do SINFO!"
+                end
             end
         end
     end

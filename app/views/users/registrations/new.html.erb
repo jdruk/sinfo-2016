@@ -9,6 +9,27 @@
   </div>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpf %><br />
+    <%= f.text_field :cpf%>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone %><br />
+    <%= f.text_field :telephone%>
+  </div>
+
+  <div class="field">
+    <%= f.label :shirkt %><br />
+    <%= f.select :shirkt, options_for_select([ :nenhuma,:grande_masculina, :media_masculina,:pequena_masculina,
+            :grande_feminino, :media_feminino,:pequena_feminino], :nenhuma) %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -23,8 +44,7 @@
 
   <%= f.fields_for :course_users do |subf| %>
       <div class="field">
-        <%#  subf.object.course %>
-        <%# subf.collection_select :course_id , Course.available(subf.object.category), :id, :name, prompt: "Nenhum" %>
+        <%= subf.collection_select :course_id , Course.available(subf.object.category), :id, :name, prompt: "Nenhum" %>
       </div>
   <% end %>
 

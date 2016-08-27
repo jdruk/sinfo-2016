@@ -9,8 +9,8 @@ class CheckoutController < ApplicationController
     # diferentes, como no exemplo abaixo
 
     payment.reference = current_user.id
-    payment.notification_url = 'https://sinfo-jdruk.c9users.io/notifications'
-    payment.redirect_url = 'https://sinfo-jdruk.c9users.io/'
+    payment.notification_url = 'http://sinfoufpi.com.br/notifications'
+    payment.redirect_url = 'http://sinfoufpi.com.br'
 
 
     payment.items << {
