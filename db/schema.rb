@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826172848) do
+ActiveRecord::Schema.define(version: 20160827001309) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20160826172848) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "shirkt",                 default: 0,  null: false
-    t.integer  "type"
     t.string   "url_token"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160826172848) do
     t.string   "cpf"
     t.string   "transation"
     t.string   "telephone"
+    t.integer  "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

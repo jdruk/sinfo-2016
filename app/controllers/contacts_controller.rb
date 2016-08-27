@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+ class ContactsController < ApplicationController
     before_action :set_contact, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, except: [:new,:create]
 
@@ -31,8 +31,8 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
 
         respond_to do |format|
-            if @contact.save
-                format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+            if verify_recaptcha(model: @contact) && @contact.save
+                format.html { redirect_to new_contact_path, notice: 'Contact was successfully created.' }
                 format.json { render :show, status: :created, location: @contact }
             else
                 format.html { render :new }

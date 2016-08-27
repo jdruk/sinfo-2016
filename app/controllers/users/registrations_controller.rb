@@ -20,6 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      }
      temp.category = value
     }
+    self.resource.role = :normal
   end
 
   # POST /resource

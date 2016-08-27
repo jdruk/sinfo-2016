@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     has_many :courses, through: :course_users
 
     enum pay: [ :unpay,:pay,:error_pay ]
+    enum role: [ :normal,:admin]
     enum shirkt: [ :nenhuma,:grande, :media,:pequena ]
 
     devise :database_authenticatable, :registerable,
@@ -27,14 +28,14 @@ class User < ActiveRecord::Base
         while transaction.next_page?
             transaction.next_page!
             if transaction.transactions.count == 0
-                flash[:notice] = "Não encontramos nenhum pagamento referente a sua inscrição"
+                #flash[:notice] = "Não encontramos nenhum pagamento referente a sua inscrição"
             end
             transaction.transactions.each do |transaction|
                 if transaction.status == 'waiting_pay'
                     if current_user.value_total == transaction.gross_amount.to_f
                         current_user.pay = :pay
                     elsif condition
-                        flash[:error] =  "Por favor contate os administradores do SINFO!"
+                        #flash[:error] =  "Por favor contate os administradores do SINFO!"
                         current_user.pay = :error_pay
                     end
                 end

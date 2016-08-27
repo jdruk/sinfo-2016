@@ -9,6 +9,7 @@ gem 'pundit'
 gem 'pagseguro-oficial', '~> 2.5.0'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
+gem "recaptcha", require: "recaptcha/rails"
 
 #gem 'rails_12factor', group: :production
 #gem 'rails_serve_static_assets'
