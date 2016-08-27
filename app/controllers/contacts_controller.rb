@@ -1,3 +1,4 @@
+require 'recaptcha.rb'
  class ContactsController < ApplicationController
     before_action :set_contact, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, except: [:new,:create]
@@ -29,9 +30,9 @@
     # POST /contacts.json
     def create
         @contact = Contact.new(contact_params)
-
+        puts params[:google]
         respond_to do |format|
-            if verify_recaptcha(model: @contact) && @contact.save
+            if @contact.save
                 format.html { redirect_to new_contact_path, notice: 'Contact was successfully created.' }
                 format.json { render :show, status: :created, location: @contact }
             else
@@ -62,7 +63,7 @@
         authorize @contact
         @contact.destroy
         respond_to do |format|
-            format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+            format.html { redirect_to contacts_url, notice: 'Mensagem enviada com sucesso! Responderemos assim que possível.' }
             format.json { head :no_content }
         end
     end

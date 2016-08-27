@@ -1,1 +1,12 @@
 <h1>admininstrator logado</h1>
+<ul>
+    <li>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </li>
+    <li>
+        <%= link_to('Cursos', courses_path) %>
+    </li>
+    <li>
+        <%= link_to('Contatos', contacts_path) %>
+    </li>
+</ul>

@@ -1,1 +1,8 @@
 <h1>Panel para o usuario logado no sistema</h1>
+<ul>
+  <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <%= link_to('Edit registration', edit_user_registration_path) %>
+      <%= link_to('Gerar Boleto', create_path) %>
+  </li>
+</ul>

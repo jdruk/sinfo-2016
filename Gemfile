@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Gem add manualmente
-gem 'puma'
+#gem 'puma'
 gem 'devise'
 gem 'pundit'
 gem 'pagseguro-oficial', '~> 2.5.0'

@@ -104,7 +104,6 @@ GEM
       nokogiri (~> 1.6)
     pg (0.18.4)
     pkg-config (1.1.7)
-    puma (3.6.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -195,7 +194,6 @@ DEPENDENCIES
   jquery-rails
   pagseguro-oficial (~> 2.5.0)
   pg
-  puma
   pundit
   rails (= 4.2.3)
   recaptcha
