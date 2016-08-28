@@ -12,13 +12,13 @@ module ApplicationHelper
         when :success
             'alert-success'
         when :error
-            'alert-error'
+            'alert-danger'
         when :alert
-            'alert-block'
+            'alert-danger'
         when :notice
             'alert-info'
         else
-            'alert-info'
+            'alert-warning'
         end
     end
 
