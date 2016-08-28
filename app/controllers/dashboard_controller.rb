@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
     skip_before_filter :verify_authenticity_token, only: :index
+    before_action :authenticate_user!, except: [:index]
 
     # =begin
     # * Name: Sinfo-2016
@@ -27,6 +28,7 @@ class DashboardController < ApplicationController
     end
 
     def admininstrator
+        authorize :dashboard, :admininstrator?
         @courses = Course.all
         @contacts = Contact.all
         @users_pay = User.where pay: 1
