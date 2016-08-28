@@ -1,0 +1,20 @@
+<!-- Cursos cadastrados -->
+<div class="">
+    <%= render :template => 'courses/index' %>
+</div>
+
+<!-- Lista de contatos  -->
+<div class="">
+    <%= render :template => 'contacts/index' %>
+</div>
+
+<!-- Lista de usuarios por categoria -->
+<!-- Somente aparece caso haja ao menos um membro na coleção -->
+<h1>Lista usuario</h1>
+<div class="">
+    <%= render_collection('user', @users_pay, 'Pagos') %>
+</div>
+
+<div class="">
+    <%= render_collection('user', @users_unpay, 'Não pagos') %>
+</div>

@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
         if user_signed_in? && (!current_user.admin?)
             unless current_user.pay?
                 # Função critica do sistema! Testar antes de colocar em produção
-                #current_user.verify_pay
+                current_user.verify_pay
                 if current_user.error_pay?
                     flash[:error] =  "Por favor contate os administradores do SINFO!"
                 end
@@ -27,6 +27,10 @@ class DashboardController < ApplicationController
     end
 
     def admininstrator
+        @courses = Course.all
+        @contacts = Contact.all
+        @users_pay = User.where pay: 1
+        @users_unpay = User.where pay: 0
     end
 
 end

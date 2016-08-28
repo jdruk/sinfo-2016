@@ -8,17 +8,22 @@ module ApplicationHelper
     end
 
     def bootstrap_class_for flash_type
-        flash_type = flash_type.to_sym
-        case flash_type
+        case flash_type.to_sym
         when :success
-            "alert-success"
+            'alert-success'
         when :error
-            "alert-error"
+            'alert-error'
         when :alert
-            "alert-block"
+            'alert-block'
         when :notice
-            "alert-info"
+            'alert-info'
+        else
+            'alert-info'
         end
     end
-    
+
+    def render_collection(name, collection,head_name)
+        render :partial => "shared/#{name}", :collection => collection, :locals => { users: collection, head_name: head_name }
+    end
+
 end
