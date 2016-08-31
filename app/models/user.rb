@@ -26,25 +26,34 @@ class User < ActiveRecord::Base
 
     def verify_pay
         transaction = PagSeguro::Transaction.find_by_reference(self.id)
-        while transaction.next_page?
-            transaction.next_page!
-            if transaction.transactions.count == 0
-                #flash[:notice] = "Não encontramos nenhum pagamento referente a sua inscrição"
-            end
-            transaction.transactions.each do |transaction|
-                if transaction.status == 'waiting_pay'
-                    if current_user.value_total == transaction.gross_amount.to_f
-                        # Atualizando status de pagameno do User
-                        current_user.pay = :pay
-                        # Atualizando status do curso selecionado desse User
-                        current_user.course_users.each do |x| x.pay = 1 end
-                        current_user.save
-                    elsif condition
-                        current_user.pay = :error_pay
-                        current_user.save
+
+            while transaction.next_page?
+                transaction.next_page!
+                puts "== Page #{transaction.page}"
+                abort "=> Errors: #{transaction.errors.join("\n")}" unless transaction.valid?
+                puts "Report created on #{transaction.created_at}"
+                puts
+
+                transaction.transactions.each do |transaction|
+                    puts "=> Transaction"
+                    puts "   created_at: #{transaction.created_at}"
+                    puts "   code: #{transaction.code}"
+                    puts "   payment method: #{transaction.payment_method.type}"
+                    puts "   gross amount: #{transaction.gross_amount.to_f}"
+                    puts "   updated at: #{transaction.updated_at}"
+                    puts "   status: #{transaction.status.status}"
+                    if transaction.status.paid?
+                        if transaction.gross_amount.to_f == self.value_total
+                            self.pay = :pay
+                            course_users.each do |course|
+                                course.pay = 1
+                            end
+                        else
+                           self.pay = :error_pay
+                        end
+                        self.save
                     end
                 end
             end
-        end
     end
 end

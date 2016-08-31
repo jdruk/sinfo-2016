@@ -17,7 +17,9 @@ class DashboardController < ApplicationController
         # =end
 
         if user_signed_in? && (!current_user.admin?)
-            unless current_user.pay?
+            if current_user.pay?
+                flash[:notice] =  "Seu pagamento foi confirmado! Obg..."
+            else
                 # Função critica do sistema! Testar antes de colocar em produção
                 current_user.verify_pay
                 if current_user.error_pay?
