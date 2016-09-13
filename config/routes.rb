@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'minicursos/index'
+
+  get 'home/index'
+
   resources :contacts
   # Rotas referentes ao Pag Seguro
   post 'notifications' => 'notifications#create', as: :create_notification

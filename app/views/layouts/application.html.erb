@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Sinfo 2016</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "8º Sinfo" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
     <!-- redenrizar partial para flash_mensagens usando o bootstrap -->
@@ -22,9 +23,8 @@
         <% end %>
     <% else %>
         <%# Panel para todos os usuarios não logados no sistema %>
-        <%= render partial: "shared/default_panel" %>
+        <%#= render partial: "shared/default_panel" %>
+        <%= yield %>
     <% end %>
-
-    <%= yield %>
 </body>
 </html>
