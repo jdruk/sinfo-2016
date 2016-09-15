@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
     has_many :course_users
     has_many :courses, through: :course_users
-
+    
+    
     enum pay: [ :unpay,:pay,:error_pay ]
     enum role: [ :normal,:admin]
     enum shirkt: [ :nenhuma,:grande_masculina, :media_masculina,:pequena_masculina,
@@ -47,7 +48,7 @@ class User < ActiveRecord::Base
                             self.pay = :pay
                             course_users.each do |course|
                                 course.pay = 1
-                            end
+                            2end
                         else
                            self.pay = :error_pay
                         end

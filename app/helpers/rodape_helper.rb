@@ -1,0 +1,2 @@
+module RodapeHelper
+end

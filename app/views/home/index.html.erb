@@ -1,41 +1,3 @@
-<!--  Início Nav Section  -->
-<nav>
-    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle></button>
-        <div class="title-bar-title">Menu</div>
-    </div>
-    <div class="top-bar logo" id="main-menu">
-        <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li class="name">
-                    <a href="#">
-                        <%=image_tag('sinfologo2.png')%>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="top-bar-right">
-            <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-                <li><%= link_to('Login', new_user_session_path, class: 'button tiny')%></li>
-                <li><%= link_to('Cadastro', new_user_registration_path, class: 'button tiny')%></li>
-            </ul>
-        </div>
-        
-        <div class="top-bar-right" id="mean_nav">
-            <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-                <li><a href="#evento">Evento</a></li>
-                <li><a href="#palestras">Palestrantes</a></li>
-                <li><a href="#minicursos">Minicursos</a></li>
-                <li><a href="#inscricao">Inscrição</a></li>
-                <li><a href="#realizacao">Realização</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!--  End Nav Section  -->
-
-
 <!--  Início Hero Section  -->
 <section class="hero">
 
@@ -57,7 +19,7 @@
     <!--    Início Services Titles    -->
     <div class="row">
         <h1 class="mean_title">O que é o SINFO?</h1>
-        <h2 class="sub_title">É o Simpósio de Sistemas de Informação, da Universidade Federal do Piauí campus Picos, construido pelo conjunto do curso. Em sua oitava edição, que acontecerá entre os dias <strong>5 a 7 de outubro de 2016</strong>, traz o tema <strong>Computação e Interdisciplinaridade</strong>            como discussão central de suas atividades. Serão dispostos espaços de discussão e construção do conhecimento, como:</h2>
+        <h2 class="sub_title">É o Simpósio de Sistemas de Informação, da Universidade Federal do Piauí, campus Picos, construido pelo conjunto do curso. Em sua oitava edição, que acontecerá entre os dias <strong>5 a 7 de outubro de 2016</strong>, traz o tema <strong>Computação e Interdisciplinaridade</strong>            como discussão central de suas atividades. Serão dispostos espaços de discussão e construção do conhecimento, como:</h2>
     </div>
     <!--    End Services Titles    -->
 
@@ -67,20 +29,23 @@
         <div class="large-4 columns">
             <%=image_tag('icon1.png', class:'serv_icon')%>
                 <h2 class="title">Palestras</h2>
-                <p>Para que os participantes possam conhecer o trabalho apresentado pelos convidados de maneira mais clara e se atualizarem dos assuntos abordados, podendo desenvolver projetos pessoais ou tirar dúvidas decorrentes destes espaços.</p>
+                <p>O VIII SINFO promoverá palestras com temas atuais e de grande interesse de empresas e da academia. Assim, possibilitando aos participantes conhecer o trabalho apresentado pelos convidados de maneira mais clara e se atualizarem dos assuntos
+                    abordados, podendo desenvolver projetos pessoais ou esclarecer dúvidas decorrentes dos temas abordados.</p>
         </div>
 
         <div class="large-4 columns">
             <%=image_tag('icon2.png',class:'serv_icon')%>
                 <h2 class="title">Minicursos</h2>
-                <p>Que com mais especifidade, levarão ao participante um conteúdo técnico, detalhado e prático acerca das ferramentas abordadas, que serão: Android; Arduino e robótica Livre; Python; Controle versão; E Muito mais</p>
+                <p>Que com mais especifidade, levarão ao participante um conteúdo técnico, detalhado e prático acerca das ferramentas abordadas, que serão: Robótica; Latex; Desenvolvimento de Jogos; Arduíno; Node.js; Entre outros.</p>
         </div>
 
 
         <div class="large-4 columns">
             <%=image_tag('icon3.png',class:'serv_icon')%>
                 <h2 class="title">Submissão de Artigos</h2>
-                <p>Ruis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>A submissão de artigos científicos é forma mais comum de disseminar os avanços alcançados por pesquisas científicas que são desenvolvidas em diversas ár eas do conhecimento. Caso queira submeter confira o nosso </br>
+                    <%= link_to('Edital', artigo_index_path, class:'maisinfo')%>
+                </p>
         </div>
 
     </div>
@@ -130,23 +95,23 @@
 
         <div class="medium-6 columns">
             <div class="profile-card">
-                <img src="http://zurb.com/ink/images/inky-computer.svg" alt="Inky">
-                <div class="profile-info">
-                    <h4 class="subheader">José Nunes de Oliveira Neto</h4>
-                    <p><strong>Faço Jogos Porque Amo: Conhecendo este Mercado</strong></p>
-                    <ul class="accordion" data-accordion data-allow-all-closed="true">
-                        <li class="accordion-item text-center" data-accordion-item>
-                            <a href="#" class="button">Biografía</a>
-                            <div class="accordion-content" data-tab-content>
-                                <p>Graduado em Ciência da Computação pela Universidade Federal do Maranhão, pesquisa na área de desenvolvimentos de jogos eletrônicos e entretenimento digital pelo IFMA - Campus Monte Castelo e atua como desenvolvedor de jogos
-                                    pela Zogui Game Studio. É também diretor de relações institucionais da Associação Maranhense de Desenvolvedores de Jogos Eletrônicos - AMAGames, onde participa de ações para disseminar a cultura do desenvolvimentos
-                                    de jogos no estado do Maranhão, tais como participação em exposições, feiras, associações e realização de cursos voltados à área.</p>
-                            </div>
-                        </li>
-                        <!-- ... -->
-                    </ul>
+                <%=image_tag('jose.jpg')%>
+                    <div class="profile-info">
+                        <h4 class="subheader">José Nunes de Oliveira Neto</h4>
+                        <p><strong>Faço Jogos Porque Amo: Conhecendo este Mercado</strong></p>
+                        <ul class="accordion" data-accordion data-allow-all-closed="true">
+                            <li class="accordion-item text-center" data-accordion-item>
+                                <a href="#" class="button">Biografía</a>
+                                <div class="accordion-content" data-tab-content>
+                                    <p>Graduado em Ciência da Computação pela Universidade Federal do Maranhão, pesquisa na área de desenvolvimentos de jogos eletrônicos e entretenimento digital pelo IFMA - Campus Monte Castelo e atua como desenvolvedor
+                                        de jogos pela Zogui Game Studio. É também diretor de relações institucionais da Associação Maranhense de Desenvolvedores de Jogos Eletrônicos - AMAGames, onde participa de ações para disseminar a cultura do desenvolvimentos
+                                        de jogos no estado do Maranhão, tais como participação em exposições, feiras, associações e realização de cursos voltados à área.</p>
+                                </div>
+                            </li>
+                            <!-- ... -->
+                        </ul>
 
-                </div>
+                    </div>
             </div>
         </div>
     </div>
@@ -177,11 +142,6 @@
                     </div>
 
                     <div class="large-4 small-6 columns">
-                        <%=image_tag('m3.png')%>
-                            <h6 class="panel"><strong>Utilização de bibliotecas livres para o processamento digital de imagens </strong></br>Alexandre e Marcos</h6>
-                    </div>
-
-                    <div class="large-4 small-6 columns">
                         <%=image_tag('m4.png')%>
                             <h6 class="panel"><strong>Latex básico para graduação</strong></br>Marcio Alves</h6>
                     </div>
@@ -196,9 +156,29 @@
                             <h6 class="panel"><strong>Dev Mobile Híbrido, foco em front end</strong></br>Vicente M Carvalho</h6>
                     </div>
 
-                    <div class="large-4 large-12 columns">
+                    <div class="large-4 small-6 columns">
+                        <%=image_tag('m3.png')%>
+                            <h6 class="panel"><strong>Utilização de bibliotecas livres para o processamento digital de imagens </strong></br>Alexandre e Marcos</h6>
+                    </div>
+                    
+                    <div class="large-4 small-6 columns">
+                        <%=image_tag('m9.png')%>
+                            <h6 class="panel"><strong>Desenvolvimento de Jogos 2D utilizando o Construct 2</strong></br>Francisco Ramon</h6>
+                    </div>
+                    
+                    <div class="large-4 small-6 columns">
                         <%=image_tag('m7.png')%>
-                            <h6 class="panel"><strong>Robótica móvel em ambientes internos: modelagem,controle e simulacão</strong></br></h6>
+                            <h6 class="panel"><strong>Robótica móvel em ambientes internos: modelagem,controle e simulacão</strong></br>Ronnasayd de Sousa Machado</h6>
+                    </div>
+
+                    <div class="large-4 small-6 columns">
+                        <%=image_tag('m8.png')%>
+                            <h6 class="panel"><strong>Introdução à arquitetura multinúcleo: conceitos sobre MPSoc e IPNoSys</strong></br>Lucas Ibiapino</h6>
+                    </div>
+                    
+                    <div class="large-12 small-6 columns">
+                        <%=image_tag('m10.png')%>
+                            <h6 class="panel"><strong>Ruby on Rails</strong></br>Wallison Rubens</h6>
                     </div>
 
                 </div>
@@ -213,36 +193,36 @@
 <!--  Início Chamada Section  -->
 <section class="cta" id="inscricao">
     <div class="row">
-  <div class="column medium-4">
+        <div class="column medium-4">
 
-    <ul class="pricing-table no-bullet text-center">
-      <li class="titleprice">Básico</li>
-      <li class="price">R$20,00</li>
-      <li class="description">Somente Palestras</li>
-    </ul>
+            <ul class="pricing-table no-bullet text-center">
+                <li class="titleprice">Básico</li>
+                <li class="price">R$20,00</li>
+                <li class="description">Somente Palestras</li>
+            </ul>
 
-  </div>
-  
-    <div class="column medium-4">
+        </div>
 
-    <ul class="pricing-table no-bullet text-center">
-      <li class="titleprice">Intermediário</li>
-      <li class="price">R$30,00</li>
-      <li class="description">Palestras + 1 Minicurso</li>
-    </ul>
+        <div class="column medium-4">
 
-  </div>
-  
-    <div class="column medium-4">
+            <ul class="pricing-table no-bullet text-center">
+                <li class="titleprice">Intermediário</li>
+                <li class="price">R$30,00</li>
+                <li class="description">Palestras + 1 Minicurso</li>
+            </ul>
 
-    <ul class="pricing-table no-bullet text-center">
-      <li class="titleprice">Quero tudo</li>
-      <li class="price">R$35,00</li>
-      <li class="description">Palestras + 2 Minicursos</li>
-    </ul>
+        </div>
 
-  </div>
-</div>
+        <div class="column medium-4">
+
+            <ul class="pricing-table no-bullet text-center">
+                <li class="titleprice">Completo</li>
+                <li class="price">R$35,00</li>
+                <li class="description">Palestras + 2 Minicursos</li>
+            </ul>
+
+        </div>
+    </div>
     <div class="row">
         <!--    Início CTA Titles    -->
         <h1 class="title">Venha participar do maior evento de TI do centro-sul piauiense!</h1>
@@ -273,7 +253,7 @@
 
                     <div class="large-4 columns">
                         <%=image_tag('r2.png')%>
-                        </div>
+                    </div>
 
                     <div class="large-4 columns">
                         <%=image_tag('r3.png')%>
@@ -288,50 +268,7 @@
 
 </section>
 <!--  End Realização Section  -->
-
-
-<!--  Início Rodapé Section  -->
-<footer>
-    <div class="row">
-
-        <!--    Início Copyrights    -->
-        <div class="small-12 medium-4 large-4 columns">
-            <div class="copyrights">
-                <a class="logo" href="#">
-                    <h1>Sinfo<span class="tld">.com</span></h1>
-                </a>
-                <p>Copyright © 20015-2015 SINFO.</p>
-            </div>
-        </div>
-        <!--    End Copyrights    -->
-
-
-        <div class="small-12 medium-8 large-8 columns">
-            <div class="contact_details right">
-                <nav class="social">
-                    <ul class="no-bullet">
-                        <li><a href="https://www.facebook.com/sinfoufpi" target="_blank">Facebook</a></li>
-                        <li><a href="http://instagram.com/sinfoufpi" target="_blank">Instagram</a></li>
-                        <li><a href="http://twitter.com/sinfoufpi" target="_blank">Twitter</a></li>
-                        <li><a href="http://plus.google.com/sinfoufpi" target="_blank">Google+</a></li>
-                    </ul>
-                </nav>
-
-                <div class="contact">
-                    <div class="details">
-                        <p>sinfovi@gmail.com</p>
-                        <p>Numero do telefone aqui</p>
-                    </div>
-
-                    <p class="adress">UFPI | Campus Senador Helvídio Nunes de Barros<br>Rua Cícero Duarte - n. 905 - Bairro Junco - Picos - PI</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</footer>
-<!--  End Rodapé Section  -->
-
-<!--    Início Back To Top    -->
-<a href="#" class="button" id="back_top">Topo</a>
-<!--    End Back To Top    -->
+<%= render partial: "rodape/rodape" %>
+    <!--    Início Back To Top    -->
+    <a href="#" class="button" id="back_top">Topo</a>
+    <!--    End Back To Top    -->

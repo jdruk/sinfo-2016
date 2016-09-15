@@ -19,19 +19,15 @@ class CheckoutController < ApplicationController
         amount: Sinfo::VALUE_INSCRIPTION
     }
 
-    unless current_user.nenhuma?
-        payment.items << {
-            id: 101,
-            description: current_user.shirkt,
-            amount: Sinfo::VALUE_SHIRKT
-        }
+    @aumount = 10
+    if current_user.courses.count == 2
+      @aumount = 7.50
     end
-
     current_user.courses.each do |c|
         payment.items << {
             id: c.id,
             description: c.name,
-            amount: Sinfo::VALUE_COURSE
+            amount: @aumount
         }
     end
 

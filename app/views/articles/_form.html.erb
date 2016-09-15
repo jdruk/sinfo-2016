@@ -1,0 +1,40 @@
+<!--  Início Chamada Section  -->
+<section class="cta" id="inscricao">
+
+
+<!--  End Chamada Section  -->
+    <div class="row">
+
+        <div class="medium-6 columns">
+            <div class="profile-card">
+            <!--    Início CTA Titles    -->
+            <h1 class="title">Deseja submeter o seu trabalho?</h1>
+            <h2 class="sub_title">que tal uma olhadinha no nosso edital antes?</h2>
+            <!--    End CTA Titles    -->
+
+            <!--    Início Button    -->
+            <%= link_to('Confira!', new_user_session_path, class: 'button large')%>
+                <!--    End Button    -->
+            </div>
+        </div>
+
+        <div class="medium-6 columns">
+            <div class="profile-card">
+            <h1 class="title">Ja conferiu?Tudo certo?</h1>
+            <h2 class="sub_title">Então nos envie seu trabalho!</h2>
+                
+            <%= form_for @article do |f| %>
+              <!--<label for="article_file_article" class="button large">Escolher arquivo</label>-->
+              <%= f.file_field :file_article, class: 'button large' %>
+              <%= f.submit 'Enviar', class:'button large success' %>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%# render partial: "rodape/rodape" %>
+
+
+

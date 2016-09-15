@@ -1,0 +1,27 @@
+<!--  Início Nav Section  -->
+<nav>
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="top-bar logo" id="main-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="name">
+                    <a href="#">
+                        <%=image_tag('sinfologo2.png')%>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="top-bar-right">
+            <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+                <li>
+                    <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: 'button tiny') %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  End Nav Section  -->
