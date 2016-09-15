@@ -1,0 +1,34 @@
+<!--  Início Nav Section  -->
+<nav>
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="large">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="top-bar logo" id="main-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="name">
+                        <%=link_to image_tag('sinfologo2'), home_index_path%>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="top-bar-right">
+            <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+                <li><%= link_to('Login', new_user_session_path, class: 'button tiny')%></li>
+                <li><%= link_to('Cadastro', new_user_registration_path, class: 'button tiny')%></li>
+            </ul>
+        </div>
+        
+        <div class="top-bar-right" id="mean_nav">
+            <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+                <li><a href="#evento">Evento</a></li>
+                <li><a href="#palestras">Palestrantes</a></li>
+                <li><a href="#minicursos">Minicursos</a></li>
+                <li><a href="#inscricao">Inscrição</a></li>
+                <li><a href="#realizacao">Realização</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  End Nav Section  -->

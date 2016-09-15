@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Sinfo
   # Valores de inscrição, camisa e curso
-  VALUE_INSCRIPTION = 10.00
+  VALUE_INSCRIPTION = 20.00
   VALUE_SHIRKT = 10.00
   VALUE_COURSE = 15.00
 

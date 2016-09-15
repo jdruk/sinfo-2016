@@ -1,0 +1,36 @@
+<!--  Início Chamada Section  -->
+<section class="cta" id="inscricao">
+
+
+<!--  End Chamada Section  -->
+    <div class="row">
+
+        <div class="medium-6 columns">
+            <div class="profile-card">
+            <!--    Início CTA Titles    -->
+            <h1 class="title">Deseja submeter o seu trabalho?</h1>
+            <h2 class="sub_title">que tal uma olhadinha no nosso edital antes?</h2>
+            <!--    End CTA Titles    -->
+
+            <!--    Início Button    -->
+            <%= link_to('Confira!', new_user_session_path, class: 'button large')%>
+                <!--    End Button    -->
+            </div>
+        </div>
+
+        <div class="medium-6 columns">
+            <div class="profile-card">
+            <h1 class="title">Ja conferiu?Tudo certo?</h1>
+            <h2 class="sub_title">Então nos envie seu trabalho!</h2>
+            
+            <label for="exampleFileUpload" class="button large">Escolher arquivo</label>
+            <input type="file" id="exampleFileUpload" class="show-for-sr">
+            
+            <button class="button large success">Enviar</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%= render partial: "rodape/rodape" %>

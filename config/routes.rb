@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :articles
+  get 'rodape/rodape'
+  
+  get 'topo/login'
+
+  get 'topo/logout'
+
+  get 'artigo/index'
+
   get 'minicursos/index'
 
   get 'home/index'
@@ -9,7 +18,7 @@ Rails.application.routes.draw do
   get 'checkout/create' => 'checkout#create', as: :create
 
   # Index principal do sistema
-  root 'dashboard#index'
+  root 'home#index'
   get 'dashboard/index' => 'dashboard#index', as: :index
 
   # Painel administrativo

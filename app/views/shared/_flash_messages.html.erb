@@ -1,6 +1,14 @@
-<% flash.each do |type, message| %>
-  <div class="alert <%= bootstrap_class_for(type) %> fade in">
-    <button class="close" data-dismiss="alert">×</button>
-    <%= message %>
-  </div>
-<% end %>
+  <%# flash.each do |name, msg| %>
+    <%# if msg.is_a?(String) %>
+      <%#= content_tag :div, msg, class: "alert-box #{name} radius" %>
+    <%# end %>
+  <%# end %>
+  
+  <% flash.each do |key, value| %>
+    <div class="callout <%= key %> fade in" data-closable>
+      <div class="alert alert-"><%= value %></div>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  <% end %>

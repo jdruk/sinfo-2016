@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827173134) do
+ActiveRecord::Schema.define(version: 20160915174641) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "file_article"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160827173134) do
     t.string   "telephone"
     t.integer  "role",                   default: 0,  null: false
     t.string   "name"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

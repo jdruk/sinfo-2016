@@ -1,3 +1,9 @@
+<style>
+ div#mean_nav {
+    display: none;
+  }
+</style>
+
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
     <h2 class="text-center">Cadastro</h2>
@@ -26,12 +32,6 @@
         </div>
 
         <div class="field">
-          <%= f.label :camiseta %><br />
-            <%= f.select :shirkt, options_for_select([ :nenhuma,:grande_masculina, :media_masculina,:pequena_masculina,
-            :grande_feminino, :media_feminino,:pequena_feminino], :nenhuma) %>
-        </div>
-
-        <div class="field">
           <%= f.label :senha %>
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
@@ -46,6 +46,7 @@
 
         <%= f.fields_for :course_users do |subf| %>
           <div class="field">
+            <%= f.label :minicurso %><br />
             <%= subf.collection_select :course_id , Course.available(subf.object.category), :id, :name, prompt: "Nenhum" %>
           </div>
           <% end %>
