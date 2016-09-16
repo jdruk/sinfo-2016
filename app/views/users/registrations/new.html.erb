@@ -13,7 +13,7 @@
 
         <div class="field">
           <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %>
+            <%= f.email_field :email, autofocus: true , required: :true%>
         </div>
 
         <div class="field">
@@ -36,12 +36,12 @@
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
               <% end %><br />
-                <%= f.password_field :password, autocomplete: "off" %>
+                <%= f.password_field :password, autocomplete: "off",required: :true %>
         </div>
 
         <div class="field">
           <%= f.label :confirmar_senha %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <%= f.password_field :password_confirmation, autocomplete: "off",required: :true %>
         </div>
 
         <%= f.fields_for :course_users do |subf| %>

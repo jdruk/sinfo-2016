@@ -1,0 +1,20 @@
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th >email</th>
+			<th >pagamento</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+
+			<td><%= @user.name %></td>
+			<td><%= @user.email %></td>
+			<td><%= @user.pay %></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

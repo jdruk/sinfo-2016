@@ -29,6 +29,8 @@ Rails.application.routes.draw do
              :registrations => 'users/registrations',
              :sessions => 'users/sessions'
   }
+
+  resources :users
   # Demais modelos
   resources :courses
 end
