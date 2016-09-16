@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require map
-//= require foundation.topbar
 //= require foundation
 //= require_tree
-$(function(){ $(document).foundation(); });
 $(function(){ $(document).foundation(); });

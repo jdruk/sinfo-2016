@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   # Rotas para sessions e registrations passando pela views geradas do devise
   devise_for :users, :controllers  => {
              :registrations => 'users/registrations',
-             :sessions => 'users/sessions'
+             :sessions => 'users/sessions',
+             :passwords => 'users/passwords'
   }
 
   resources :users

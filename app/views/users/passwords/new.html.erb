@@ -1,16 +1,26 @@
-<h2>Forgot your password?</h2>
+<style>
+  div#mean_nav {
+    display: none;
+  }
+</style>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <h2 class="text-center">Esqueceu sua senha?</h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Me enviar as intruções de redefinição de senha" , class: 'button'%>
+        </div>
+        <% end %>
+
+          <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
