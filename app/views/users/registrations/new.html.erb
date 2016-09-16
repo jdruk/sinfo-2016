@@ -13,7 +13,7 @@
 
         <div class="field">
           <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true , required: :true%>
+            <%= f.email_field :email, autofocus: true , required: :true %>
         </div>
 
         <div class="field">
@@ -22,8 +22,8 @@
         </div>
 
         <div class="field">
-          <%= f.label :cpf %><br />
-            <%= f.text_field :cpf%>
+          <%= f.label :cpf %>(somente números)<br />
+            <%= f.text_field :cpf, required: :true %>
         </div>
 
         <div class="field">
@@ -36,12 +36,12 @@
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> caracteres no mínimo)</em>
               <% end %><br />
-                <%= f.password_field :password, autocomplete: "off",required: :true %>
+                <%= f.password_field :password, autocomplete: "off",required: :true, :pattern => '.{6,}' %>
         </div>
 
         <div class="field">
           <%= f.label :confirmar_senha %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off",required: :true %>
+            <%= f.password_field :password_confirmation, autocomplete: "off",required: :true, :pattern => '.{6,}'%>
         </div>
 
         <%= f.fields_for :course_users do |subf| %>
