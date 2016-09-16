@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :redirect_to_user
+  
   # GET /users
   # GET /users.json
   def index
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+     
   end
 
   # POST /users
@@ -71,5 +74,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :pay, :email)
       #params.fetch(:user, {})
+    end
+    
+    def redirect_to_user
+       unless current_user.admin?
+          redirect_to root_path
+       end 
     end
 end

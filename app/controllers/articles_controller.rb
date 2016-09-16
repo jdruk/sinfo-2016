@@ -19,18 +19,23 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    # flash[:notice] = 'teste'
-    # if user_signed_in? && (!current_user.admin?)
-    #     if current_user.pay?
-    #             flash[:notice] =  "Seu pagamento foi confirmado! Obg..."
-    #     else
-    #     # Função critica do sistema! Testar antes de colocar em produção
-    #       current_user.verify_pay
-    #       if current_user.error_pay?
-    #         flash[:error] =  "Por favor contate os administradores do SINFO!"
-    #       end
-    #     end
-    # end
+    flash[:notice] = 'Se você efetou o pagamento e não foi confirmado, por favor entre em contato!'
+    begin
+      if user_signed_in? && (!current_user.admin?)
+          if current_user.pay?
+                  flash[:notice] =  "Seu pagamento foi confirmado! Obg..."
+          else
+          # Função critica do sistema! Testar antes de colocar em produção
+            current_user.verify_pay
+            if current_user.error_pay?
+              flash[:error] =  "Por favor contate os administradores do SINFO!"
+            end
+          end
+    end
+    rescue 
+      flash[:alert] = 'Houve um erro de comunicação com o pagseguro, por favor aguarde...'
+    end 
+    
     @article = Article.new
     @article.user = @user
   end
