@@ -4,7 +4,7 @@
     <%= user.email %>
     <%= user.telephone %>|
     cursos : 
-    <%= user.courses.each do |c| %>|
+    <% user.courses.each do |c| %>|
        <%=  c.name %>
     <% end %>
     <hr>
