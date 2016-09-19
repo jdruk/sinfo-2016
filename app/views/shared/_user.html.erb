@@ -1,12 +1,33 @@
+<div class="row">
+    <div class="small-12 small-centered columns">
+        <div class="row text-center">
 <h1><%= head_name %></h1>
-<% users.each do |user| %>
-    <%= user.name %>
-    <%= user.email %>
-    <%= user.telephone %>|
-    cursos : 
+
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Cursos</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.telephone %></td>
+        <td>|cursos : 
     <% user.courses.each do |c| %>|
        <%=  c.name %>
+    <% end %></td>
+      </tr>
     <% end %>
-    <hr>
-    <br/>
-<% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>

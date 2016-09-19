@@ -1,8 +1,9 @@
+<hr>
 <!-- Cursos cadastrados -->
 <div class="">
     <%= render :template => 'courses/index' %>
 </div>
-
+<hr>
 <!-- Lista de contatos  -->
 <div class="">
     <%= render :template => 'contacts/index' %>
@@ -10,14 +11,15 @@
 
 <!-- Lista de usuarios por categoria -->
 <!-- Somente aparece caso haja ao menos um membro na coleção -->
-<h1>Lista usuario</h1>
+<hr>
 <div class="">
     <!-- Caminho completo views/shared/_user.html.erb
          em ambas funções.
     -->
-    <%= render_collection('user', @users_pay, 'Pagos') %>
+    <%= render_collection('user', @users_pay, 'USUÁRIOS | PAGAMENTO CONFIRMADO') %>
+</div>
+<hr>
+<div class="">
+    <%= render_collection('user', @users_unpay, 'USUÁRIOS | PAGAMENTO PENDENTE') %>
 </div>
 
-<div class="">
-    <%= render_collection('user', @users_unpay, 'Não pagos') %>
-</div>
