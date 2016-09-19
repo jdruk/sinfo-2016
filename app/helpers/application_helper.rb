@@ -23,7 +23,7 @@ module ApplicationHelper
     end
 
     def render_collection(name, collection,head_name)
-        render :partial => "shared/#{name}", :collection => collection, :locals => { users: collection, head_name: head_name }
+        render :partial => "shared/#{name}", :locals => { users: collection, head_name: head_name }
     end
 
 end

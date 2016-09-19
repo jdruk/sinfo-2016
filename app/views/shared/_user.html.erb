@@ -2,5 +2,11 @@
 <% users.each do |user| %>
     <%= user.name %>
     <%= user.email %>
-    <%= user.telephone %>
+    <%= user.telephone %>|
+    cursos : 
+    <%= user.courses.each do |c| %>|
+       <%=  c.name %>
+    <% end %>
+    <hr>
+    <br/>
 <% end %>
