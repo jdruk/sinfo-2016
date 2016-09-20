@@ -9,12 +9,16 @@
             <div class="profile-card">
             <!--    Início CTA Titles    -->
             <h1 class="title">Deseja submeter o seu trabalho?</h1>
-            <h2 class="sub_title">que tal uma olhadinha no nosso edital antes?</h2>
+            <h2 class="sub_title">Confira o edital e utilize nosso template!</h2>
             <!--    End CTA Titles    -->
 
             <!--    Início Button    -->
-            <a class='button large' href="https://www.dropbox.com/s/2yffe4ca91w52w7/artigo-sinfo?dl=0">Confira!</a>
-                <!--    End Button    -->
+            <%= link_to('Edital', "https://www.dropbox.com/s/oz5kkkzs4wr3y23/Edital%20Sinfo%202016.pdf?dl=0", class: 'button large')%>
+            <!--    End Button    -->
+
+            <!--    Início Button    -->
+            <%= link_to('Template', "https://www.dropbox.com/s/7lknfv3jjvhia8x/Template%20Sinfo%202016.doc?dl=0", class: 'button large')%>
+            <!--    End Button    -->
             </div>
         </div>
 
@@ -25,8 +29,7 @@
 <p>Atenção! Mande seu arquivo em PDF!</p>
                 
             <%= form_for @article do |f| %>
-              <!--<label for="article_file_article" class="button large">Escolher arquivo</label>-->
-              <%= f.file_field :file_article, class: 'button large' %>
+              <%= f.file_field :file_article, class:'button large'%>
               <%= f.submit 'Enviar', class:'button large success' %>
             <% end %>
             </div>
