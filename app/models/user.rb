@@ -45,14 +45,14 @@ class User < ActiveRecord::Base
                     puts "   updated at: #{transaction.updated_at}"
                     puts "   status: #{transaction.status.status}"
                     if transaction.status.paid?
-                        if transaction.gross_amount.to_f == self.value_total
-                            self.pay = :pay
-                            course_users.each do |course|
-                                course.pay = 1
-                            2end
-                        else
-                           self.pay = :error_pay
+                    #if transaction.gross_amount.to_f == self.value_total
+                        self.pay = :pay
+                        course_users.each do |course|
+                            course.pay = 1
                         end
+                    # else
+                    #      self.pay = :error_pay
+                    #   end
                         self.save
                     end
                 end
