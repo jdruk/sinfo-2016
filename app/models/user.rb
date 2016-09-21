@@ -17,12 +17,16 @@ class User < ActiveRecord::Base
     def value_total
         #valor da inscrição
         value = Sinfo::VALUE_INSCRIPTION
-        #Valor da camisa
-        unless self.nenhuma?
-            value += Sinfo::VALUE_SHIRKT
-        end
+        
         #valor por curso
-        total_courses = Sinfo::VALUE_COURSE * self.courses.count
+        total_courses = 0
+        if self.courses.count == 2
+            total_courses = 15
+        elsif 
+            self.courses.count == 1
+            total_courses = 10
+        end
+        
         return value + total_courses
     end
 
@@ -45,14 +49,16 @@ class User < ActiveRecord::Base
                     puts "   updated at: #{transaction.updated_at}"
                     puts "   status: #{transaction.status.status}"
                     if transaction.status.paid?
-                    #if transaction.gross_amount.to_f == self.value_total
-                        self.pay = :pay
-                        course_users.each do |course|
+                        puts transaction.gross_amount.to_f 
+                        puts self.value_total
+                        if transaction.gross_amount.to_f == self.value_total
+                            self.pay = :pay
+                            course_users.each do |course|
                             course.pay = 1
                         end
-                    # else
-                    #      self.pay = :error_pay
-                    #   end
+                    else
+                          self.pay = :error_pay
+                    end
                         self.save
                     end
                 end
