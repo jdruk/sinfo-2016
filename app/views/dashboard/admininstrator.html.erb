@@ -27,3 +27,33 @@
     <%= render_collection('user', @users_unpay, 'USUÁRIOS | PAGAMENTO PENDENTE') %>
 </div>
 
+
+<div>
+    <div class="row">
+    <div class="small-12 small-centered columns">
+        <div class="row text-center">
+<h1>Quantidade pagos por curso</h1>
+
+<table class="text-left">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Course.all.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+        <td><%= course.course_users.where(pay:1).count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+</div>

@@ -43,6 +43,7 @@ class DashboardController < ApplicationController
         
         @users_pay = User.where pay: 1
         @users_unpay = User.where pay: 0
+        @courseusers = CourseUser.where pay: 1
     end
-
+    
 end
