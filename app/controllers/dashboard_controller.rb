@@ -33,6 +33,14 @@ class DashboardController < ApplicationController
         authorize :dashboard, :admininstrator?
         @courses = Course.all
         @contacts = Contact.all
+        
+        if params[:atualizar]
+           users = User.where pay: 0
+           users.each do |user|
+               user.verify_pay
+           end
+        end
+        
         @users_pay = User.where pay: 1
         @users_unpay = User.where pay: 0
     end

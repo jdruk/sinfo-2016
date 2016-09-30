@@ -1,5 +1,9 @@
 <hr>
 <!-- Cursos cadastrados -->
+<div>
+    <%= link_to "atualizar", admininstrator_path(:atualizar => true), class: 'button' %>
+</div>
+
 <div class="">
     <%= render :template => 'courses/index' %>
 </div>

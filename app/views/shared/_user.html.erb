@@ -10,6 +10,7 @@
       <th>Email</th>
       <th>Telephone</th>
       <th>Cursos</th>
+      <th>Artigo</th>
     </tr>
   </thead>
 
@@ -23,7 +24,12 @@
     <% user.courses.each do |c| %>|
        <%=  c.name %>
     <% end %></td>
-      </tr>
+      <td>
+          <% unless user.articles.last.nil? %>
+            <a href='<%= user.articles.last.file_article.url %>'>Download</a>
+          <% end %>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
    
     has_many :course_users
     has_many :courses, through: :course_users
+    has_many :articles
     
     
     enum pay: [ :unpay,:pay,:error_pay ]
