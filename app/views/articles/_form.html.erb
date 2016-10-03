@@ -25,12 +25,12 @@
         <div class="medium-6 columns">
             <div class="profile-card">
             <h1 class="title">Ja conferiu?Tudo certo?</h1>
-            <h2 class="sub_title">Então nos envie seu trabalho!</h2>
-<p>Atenção! Mande seu arquivo em PDF!</p>
+            <h2 class="sub_title">Prazo já expirou</h2>
+<p>Atenção! prazo de envio expirado!</p>
                 
             <%= form_for @article do |f| %>
-              <%= f.file_field :file_article, class:'button large'%>
-              <%= f.submit 'Enviar', class:'button large success' %>
+              <%# f.file_field :file_article, class:'button large'%>
+              <%# f.submit 'Enviar', class:'button large success' %>
             <% end %>
             </div>
         </div>
