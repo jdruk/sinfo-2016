@@ -1,0 +1,21 @@
+<div class="menu">
+  <a href="#" onclick="print_certificado()" class="button radius">Imprimir certificado</a>
+</div>
+
+<div class="certificado box">
+  <%= image_tag 'certificado.png', class: 'img-responsive certificado-bg' %>
+
+  <div class="overbox">
+    <p>Conferimos a <strong><%= current_user.name.upcase %></strong>, portador do CPF de número <strong><%= current_user.cpf %></strong>, 24 horas/aula de carga horária complementar pela participação nas palestras e atividades básicas do 8° SINFO – Simpósio de Sistemas de Informação, da Universidade Federal do Piauí, campus Senador Helvídio Nunes de Barros, que aconteceu entre os dias 5, 6 e 7 de Outubro de 2016 sob o tema: Computação & Interdisciplinaridade.</p>
+       
+    <% current_user.courses.each do |f| %>
+      <p>+ 4 horas/aula pelo minicurso <strong><%= f.name.upcase %></strong></p>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function print_certificado() {
+    window.print();
+  }
+</script>

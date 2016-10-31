@@ -10,6 +10,7 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <script src="js/foundation/foundation.alert.js"></script>
     <%= csrf_meta_tags %>
+
 </head>
 <body>
     <!-- redenrizar partial para flash_mensagens usando o bootstrap -->
@@ -17,13 +18,13 @@
     <%# Seleção do menu para o tipo de usuario logado no sistema %>
     <% if user_signed_in? %>
         <% if current_user.admin? %>
-        <%= render partial: "topo/logout" %>
-        <%= render partial: "shared/flash_messages", flash: flash %>
-        <%= render partial: "shared/admin_panel" %>
+            <%= render partial: "topo/logout" %>
+            <%= render partial: "shared/flash_messages", flash: flash %>
+            <%= render partial: "shared/admin_panel" %>
         <% else %>
-        <%= render partial: "topo/logout" %>
-        <%= render partial: "shared/flash_messages", flash: flash %>
-        <%= render partial: "shared/normal_panel" %>
+            <%= render partial: "topo/logout" %>
+            <%= render partial: "shared/flash_messages", flash: flash %>
+            <%= render partial: "shared/normal_panel" %>
         <% end %>
     <% else %>
         <%# Panel para todos os usuarios não logados no sistema %>

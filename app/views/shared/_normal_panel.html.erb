@@ -3,7 +3,8 @@
         <div class="row text-center">
         <h1 >Seja Bem-Vindo <%= current_user.name %></h1>
         <%= link_to('Editar cadastro', edit_user_registration_path, class: 'button') %>
-        <%= link_to('Gerar Boleto', create_path, class: 'button') %>
+        <%# link_to('Gerar Boleto', create_path, class: 'button') %>
+        <%= link_to('Gerar certificado', certificate_create_certificate_path, class: 'button') %>
         </div>
     </div>
 </div>

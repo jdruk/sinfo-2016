@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'certificate/create_certificate'
+
   resources :articles
   get 'rodape/rodape'
   
